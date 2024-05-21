@@ -152,5 +152,11 @@ export class TableComponent implements OnInit {
           this.filteredCity = [];
         }
       });
+
+      this.formGroup
+      .get('selectedCity')
+      ?.valueChanges.subscribe(()=>
+        console.log("formGroup",this.formGroup.value)
+      )
   }
 }
