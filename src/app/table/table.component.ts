@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { FullCountry, Country, State, City, FilteredState,FilteredCity} from '../schema';
+import { FullCountry, Country, State, City, FilteredState, FilteredCity } from '../schema';
 import { fullCountry } from '../data';
 
 import { TableModule } from 'primeng/table';
@@ -41,9 +41,9 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = new FormGroup({
-      selectedCountry: new FormControl(null),
-      selectedState: new FormControl(null),
-      selectedCity: new FormControl(null),
+      selectedCountry: new FormControl<City | null>(null),
+      selectedState: new FormControl<State | null>(null),
+      selectedCity: new FormControl<City | null>(null)
     });
 
     this.fullcountry.getcountry().then((data) => {

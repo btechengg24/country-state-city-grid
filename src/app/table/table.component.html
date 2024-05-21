@@ -14,7 +14,7 @@
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr style="height: 90px" class="centered-row">
+        <tr style="height: 140px" class="centered-row">
           <td *ngFor="let col of columns">
             <!-- Check if the column header is 'Country' -->
             <ng-container *ngIf="col.field === 'country'">
@@ -23,6 +23,9 @@
                 optionLabel="country"
                 formControlName="selectedCountry"
                 placeholder="Select Country"
+                [showClear]="true"
+                [checkmark]="true"
+                [editable]="true"
               ></p-dropdown>
             </ng-container>
             <ng-container *ngIf="col.field === 'state'">
@@ -31,6 +34,9 @@
                 optionLabel="state"
                 formControlName="selectedState"
                 placeholder="Select State"
+                [showClear]="true"
+                [checkmark]="true"
+                [editable]="true"
               ></p-dropdown>
             </ng-container>
             <ng-container *ngIf="col.field === 'city'">
@@ -38,6 +44,9 @@
                 [options]="filteredCity"
                 optionLabel="city"
                 placeholder="Select City"
+                [showClear]="true"
+                [checkmark]="true"
+                [editable]="true"
               ></p-dropdown>
             </ng-container>
           </td>
