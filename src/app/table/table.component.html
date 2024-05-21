@@ -1,0 +1,48 @@
+<div class="card">
+  <form [formGroup]="formGroup">
+    <p-table
+      [columns]="cols"
+      [value]="[{}]"
+      class="p-table"
+      [tableStyle]="{ 'min-width': '50rem', border: '1px solid #000' }"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr style="height: 46px">
+          <th *ngFor="let col of columns">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr style="height: 90px" class="centered-row">
+          <td *ngFor="let col of columns">
+            <!-- Check if the column header is 'Country' -->
+            <ng-container *ngIf="col.field === 'country'">
+              <p-dropdown
+                [options]="country"
+                optionLabel="country"
+                formControlName="selectedCountry"
+                placeholder="Select Country"
+              ></p-dropdown>
+            </ng-container>
+            <ng-container *ngIf="col.field === 'state'">
+              <p-dropdown
+                [options]="filteredState"
+                optionLabel="state"
+                formControlName="selectedState"
+                placeholder="Select State"
+              ></p-dropdown>
+            </ng-container>
+            <ng-container *ngIf="col.field === 'city'">
+              <p-dropdown
+                [options]="filteredCity"
+                optionLabel="city"
+                placeholder="Select City"
+              ></p-dropdown>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </form>
+</div>
